@@ -11,7 +11,7 @@ const { checkForAuthenticationCookie } = require("./middlewares/authentication")
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-mongoose.connect(process.env.MONGO_URL).then((e) => console.log("MongoDB Connected"));
+mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/blogify').then((e) => console.log("MongoDB Connected"));
 
 app.set("view engine", "ejs")
 app.set("views", path.resolve('./views'))
